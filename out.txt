@@ -1,0 +1,21 @@
+2024-03-03 10:27:01.274 | FOREMAN | 1 | blocks found: 5 | total resources found: 15
+2024-03-03 10:27:01.351 | WORKER | 1 | resource mined in time [ms]: 1
+2024-03-03 10:27:01.351 | WORKER | 4 | resource mined in time [ms]: 2
+2024-03-03 10:27:01.351 | WORKER | 5 | resource mined in time [ms]: 2
+2024-03-03 10:27:01.351 | WORKER | 2 | resource mined in time [ms]: 1
+2024-03-03 10:27:01.351 | WORKER | 3 | resource mined in time [ms]: 2
+2024-03-03 10:27:01.353 | WORKER | 5 | resource mined in time [ms]: 1
+2024-03-03 10:27:01.353 | WORKER | 1 | resource mined in time [ms]: 1
+2024-03-03 10:27:01.353 | WORKER | 4 | resource mined in time [ms]: 1
+2024-03-03 10:27:01.353 | WORKER | 2 | resource mined in time [ms]: 1
+2024-03-03 10:27:01.354 | WORKER | 3 | resource mined in time [ms]: 2
+2024-03-03 10:27:01.354 | WORKER | 1 | resource mined in time [ms]: 1
+2024-03-03 10:27:01.354 | WORKER | 2 | resource mined in time [ms]: 1
+2024-03-03 10:27:01.355 | WORKER | 1 | block mined in time [ms]: 3
+2024-03-03 10:27:01.356 | WORKER | 3 | resource mined in time [ms]: 1
+2024-03-03 10:27:01.356 | WORKER | 4 | resource mined in time [ms]: 2
+2024-03-03 10:27:01.355 | WORKER | 5 | resource mined in time [ms]: 2
+2024-03-03 10:27:01.355 | WORKER | 2 | block mined in time [ms]: 3
+2024-03-03 10:27:01.357 | WORKER | 3 | block mined in time [ms]: 5
+2024-03-03 10:27:01.357 | WORKER | 4 | block mined in time [ms]: 5
+2024-03-03 10:27:01.357 | WORKER | 5 | block mined in time [ms]: 5
