@@ -11,21 +11,25 @@ public class Foreman {
     private File inputFile;
     private int workerCount;
     private int workerTime;
+    private int lorryCap;
     private List<Block> blocksToMine;
     private List<Worker> workers;
     private ThreadGroup workerThreads;
+    private LorryManager lorryManager;
     private Printer printer;
 
-    public Foreman(File inputFile, int workerCount, int workerTime, Printer printer) {
+    public Foreman(File inputFile, int workerCount, int workerTime, int lorryCap, Printer printer) {
         this.ID = 1;
         this.inputFile = inputFile;
         this.workerCount = workerCount;
         this.workerTime = workerTime;
+        this.lorryCap = lorryCap;
         this.workers = new ArrayList<Worker>();
         this.workerThreads = new ThreadGroup("workers");
         this.printer = printer;
 
         analyzeMap();
+        this.lorryManager = new LorryManager(this.lorryCap, this.printer, this.getResourceCount());
         createWorkers();
     }
 
@@ -74,6 +78,8 @@ public class Foreman {
                 Thread.yield();
             }
         }
+
+        this.lorryManager.waitForAllResourcesDelivered();
     }
 
     private Worker findFreeWorker() {
@@ -100,9 +106,9 @@ public class Foreman {
 
     private void createWorkers() {
         for (int i = 1; i <= workerCount; i++) {
-            Worker newWorker = new Worker(i, workerTime, this.printer);
+            Worker newWorker = new Worker(i, this.workerTime, this.lorryManager, this.printer);
             workers.add(newWorker);
-            Thread workerThread = new Thread(workerThreads, newWorker);
+            Thread workerThread = new Thread(this.workerThreads, newWorker);
             workerThread.start();
         }
     }

@@ -11,7 +11,6 @@ public class MiningSimulator {
     public static void main(String[] args) {
         MiningSimulator sim = new MiningSimulator();
         Foreman foreman;
-        Lorry lorry;
 
         if (!sim.parseArguments(args)) {    // wrong program arguments
             System.out.println("Wrong program arguments. Usage: \n" +
@@ -21,8 +20,7 @@ public class MiningSimulator {
         else {
             sim.printArguments();
             Printer printer = new Printer(sim.outputFile);
-            foreman = new Foreman(sim.inputFile, sim.workerCount, sim.workerTime, printer);
-            lorry = new Lorry();
+            foreman = new Foreman(sim.inputFile, sim.workerCount, sim.workerTime, sim.lorryCap, printer);
             foreman.organizeWork();
             printer.close();
         }

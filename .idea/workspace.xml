@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d51e869-b04b-4522-98cc-eec11bdcedfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Lorry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Printer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Roles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Worker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LorryManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ref_input_test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ref_input_test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Foreman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Foreman.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Lorry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lorry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MiningSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MiningSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Worker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +68,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="MiningSimulator" />
       <module name="PGS_SP1" />
-      <option name="PROGRAM_PARAMETERS" value="-i ref_input_test.txt -o out.txt -cWorker 10 -tWorker 2 -capLorry 20 -tLorry 5 -capFerry 7" />
+      <option name="PROGRAM_PARAMETERS" value="-i ref_input_test.txt -o out.txt -cWorker 10 -tWorker 2 -capLorry 2 -tLorry 5 -capFerry 7" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -88,7 +88,8 @@
       <workItem from="1708371040824" duration="2525000" />
       <workItem from="1708952040873" duration="598000" />
       <workItem from="1709035322091" duration="115000" />
-      <workItem from="1709403847903" duration="12259000" />
+      <workItem from="1709403847903" duration="16725000" />
+      <workItem from="1709466240693" duration="4250000" />
     </task>
     <servers />
   </component>

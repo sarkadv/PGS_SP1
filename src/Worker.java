@@ -13,9 +13,10 @@ public class Worker implements Runnable {
     private Semaphore semaphore;
     private int minedResources;
     private int currentBlockTime;
+    private LorryManager lorryManager;
     private Printer printer;
 
-    public Worker(int ID, int workerTime, Printer printer) {
+    public Worker(int ID, int workerTime, LorryManager lorryManager, Printer printer) {
         this.ID = ID;
         this.busy = false;
         this.workerTime = workerTime;
@@ -23,6 +24,7 @@ public class Worker implements Runnable {
         this.semaphore = new Semaphore(0);
         this.minedResources = 0;
         this.currentBlockTime = 0;
+        this.lorryManager = lorryManager;
         this.printer = printer;
     }
 
@@ -52,8 +54,22 @@ public class Worker implements Runnable {
             printer.printEvent(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
 
             // load to lorry
+            while (this.minedResources > 0) {
+                synchronized (this.lorryManager) {
+                    Thread.sleep(this.loadingTime);
+                    boolean full = this.lorryManager.loadLorry();
+                    this.minedResources--;
 
-            this.minedResources = 0;
+                    line = "loaded resource onto lorry";
+                    printer.printEvent(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
+
+                    if (full) {
+                        this.lorryManager.sendOffLorry();
+                        this.lorryManager.newLorryInMine();
+                    }
+                }
+            }
+
             this.currentBlockTime = 0;
             this.busy = false;
         }
