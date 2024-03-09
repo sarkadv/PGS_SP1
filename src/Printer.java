@@ -16,18 +16,25 @@ public class Printer {
         }
     }
 
-    public synchronized void printEvent(String timestamp, String role, long threadID, String description) {
+    public synchronized void printEventToFile(String timestamp, String role, long threadID, String description) {
         String line = timestamp + " | " + role + " | " + threadID + " | " + description + "\n";
 
-        // to console
-        System.out.print(line);
-
-        // to file
         try {
             this.fileWriter.write(line);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public synchronized void printEventToConsole(String timestamp, String role, long threadID, String description) {
+        String line = timestamp + " | " + role + " | " + threadID + " | " + description + "\n";
+
+        System.out.print(line);
+    }
+
+    public synchronized void printEventToConsoleAndFile(String timestamp, String role, long threadID, String description) {
+        this.printEventToFile(timestamp, role, threadID, description);
+        this.printEventToConsole(timestamp, role, threadID, description);
     }
 
     public void close() {

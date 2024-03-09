@@ -3,10 +3,12 @@ import java.time.format.DateTimeFormatter;
 
 public class Ferry implements Runnable {
 
+    private final int ID;
     private long barrierCreatedTime;
     private Printer printer;
 
     public Ferry(long barrierCreatedTime, Printer printer) {
+        this.ID = 1;
         this.barrierCreatedTime = barrierCreatedTime;
         this.printer = printer;
     }
@@ -15,6 +17,8 @@ public class Ferry implements Runnable {
     public synchronized void run() {
         long waitedUntilLoaded = System.currentTimeMillis() - this.barrierCreatedTime;
         String line = "on its way, loaded after [ms]: " + waitedUntilLoaded;
-        printer.printEvent(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.FERRY.toString(), 1, line);
+        printer.printEventToConsoleAndFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.FERRY.toString(), this.ID, line);
+
+        this.barrierCreatedTime = System.currentTimeMillis();
     }
 }

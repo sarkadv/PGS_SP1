@@ -54,21 +54,21 @@ public class Lorry implements Runnable {
         this.loadedLatch.await();   // wait until full
         long waitedUntilLoaded = System.currentTimeMillis() - this.instanceCreatedTime;
         String line = "loaded after [ms]: " + waitedUntilLoaded;
-        printer.printEvent(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.LORRY.toString(), this.ID, line);
+        printer.printEventToFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.LORRY.toString(), this.ID, line);
     }
 
     private void driveToFerry() {
         long driveTime = ThreadLocalRandom.current().nextLong(this.lorryTime) + 1;
         this.waitForTime(driveTime);    // drive to ferry
         String line = "drove to ferry in time [ms]: " + driveTime;
-        printer.printEvent(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.LORRY.toString(), this.ID, line);
+        printer.printEventToFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.LORRY.toString(), this.ID, line);
     }
 
     private void driveToTarget() {
         long driveTime = ThreadLocalRandom.current().nextLong(this.lorryTime) + 1;
         this.waitForTime(driveTime);    // drive to goal
         String line = "drove to target location in time [ms]: " + driveTime;
-        printer.printEvent(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.LORRY.toString(), this.ID, line);
+        printer.printEventToFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.LORRY.toString(), this.ID, line);
     }
 
     private void waitForTime(long waitTime) {

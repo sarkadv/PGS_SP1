@@ -49,11 +49,11 @@ public class Worker implements Runnable {
         this.totalMinedResources++;
 
         String line = "resource mined in time [ms]: " + workTime;
-        printer.printEvent(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
+        printer.printEventToFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
 
         if (this.semaphore.availablePermits() == 0) {   // the entire block has been mined
             line = "block mined in time [ms]: " + this.currentBlockTime;
-            printer.printEvent(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
+            printer.printEventToFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
 
             // load to lorry
             while (this.minedResources > 0) {
@@ -63,7 +63,7 @@ public class Worker implements Runnable {
                     this.minedResources--;
 
                     line = "loaded resource onto lorry";
-                    printer.printEvent(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
+                    printer.printEventToFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
 
                     if (full) {
                         this.lorryManager.sendOffLorry();
@@ -93,6 +93,9 @@ public class Worker implements Runnable {
         this.semaphore.release(resources);
     }
 
+    public int getID() {
+        return this.ID;
+    }
     public boolean isBusy() {
         return this.busy;
     }

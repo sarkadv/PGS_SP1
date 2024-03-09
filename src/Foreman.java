@@ -13,7 +13,7 @@ public class Foreman {
     private int workerTime;
     private List<Block> blocksToMine;
     private Worker[] workers;
-    private ThreadGroup workerThreads;
+    private Thread[] workerThreads;
     private LorryManager lorryManager;
     private Printer printer;
 
@@ -23,7 +23,7 @@ public class Foreman {
         this.workerCount = workerCount;
         this.workerTime = workerTime;
         this.workers = new Worker[workerCount];
-        this.workerThreads = new ThreadGroup("workers");
+        this.workerThreads = new Thread[workerCount];
         this.printer = printer;
 
         analyzeMap();
@@ -49,7 +49,7 @@ public class Foreman {
         }
 
         String line = "blocks found: " + this.getBlocksCount() + " | total resources found: " + this.getResourceCount();
-        printer.printEvent(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.FOREMAN.toString(), this.ID, line);
+        printer.printEventToConsoleAndFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.FOREMAN.toString(), this.ID, line);
     }
 
     public void organizeWork() {
@@ -67,14 +67,24 @@ public class Foreman {
             }
         }
 
-        int resourcesDelivered = this.lorryManager.waitForAllResourcesDelivered();
-        this.waitForAllWorkersDone();
+        this.endWork();
     }
 
-    private void waitForAllWorkersDone() {
+    private void endWork() {
+        // wait for all resources to be delivered
+        int resourcesDelivered = this.lorryManager.waitForAllResourcesDelivered();  // all lorries at target location
+        String line = "total resources delivered to target location: " + resourcesDelivered;
+        printer.printEventToConsole(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.FOREMAN.toString(), this.ID, line);
+
+        // wait for all workers to end their job
         while (true) {
             if (this.allWorkersDone()) {
-                this.workerThreads.interrupt();
+                for (int i = 0; i < this.workerThreads.length; i++) {
+                    int resourcesMined = this.workers[i].getTotalMinedResources();
+                    line = "total resources mined: " + resourcesMined;
+                    printer.printEventToConsole(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.workers[i].getID(), line);
+                    this.workerThreads[i].interrupt();
+                }
                 break;
             }
             else {
@@ -109,7 +119,8 @@ public class Foreman {
         for (int i = 1; i <= workerCount; i++) {
             Worker newWorker = new Worker(i, this.workerTime, this.lorryManager, this.printer);
             this.workers[i - 1] = newWorker;
-            Thread workerThread = new Thread(this.workerThreads, newWorker);
+            Thread workerThread = new Thread(newWorker);
+            this.workerThreads[i - 1] = workerThread;
             workerThread.start();
         }
     }

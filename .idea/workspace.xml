@@ -10,15 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d51e869-b04b-4522-98cc-eec11bdcedfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/PGS_SP1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Ferry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ferry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ferry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Foreman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Foreman.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Lorry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lorry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LorryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LorryManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MiningSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MiningSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Printer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Worker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +104,7 @@
       <workItem from="1709902351739" duration="3096000" />
       <workItem from="1709922109034" duration="28000" />
       <workItem from="1709982089534" duration="66000" />
-      <workItem from="1709996875643" duration="3884000" />
+      <workItem from="1709996875643" duration="5790000" />
     </task>
     <servers />
   </component>
