@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PGS_SP1">
+    <output-path>$PROJECT_DIR$/out/artifacts/PGS_SP1</output-path>
+    <root id="archive" name="PGS_SP1.jar">
+      <element id="directory" name="src">
+        <element id="module-source" name="PGS_SP1" />
+      </element>
+      <element id="module-output" name="PGS_SP1" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

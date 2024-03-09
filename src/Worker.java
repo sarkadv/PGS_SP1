@@ -1,6 +1,5 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -12,6 +11,7 @@ public class Worker implements Runnable {
     private int loadingTime;
     private Semaphore semaphore;
     private int minedResources;
+    private int totalMinedResources;
     private int currentBlockTime;
     private LorryManager lorryManager;
     private Printer printer;
@@ -23,6 +23,7 @@ public class Worker implements Runnable {
         this.loadingTime = 1000;    // loading to lorry in ms
         this.semaphore = new Semaphore(0);
         this.minedResources = 0;
+        this.totalMinedResources = 0;
         this.currentBlockTime = 0;
         this.lorryManager = lorryManager;
         this.printer = printer;
@@ -42,9 +43,10 @@ public class Worker implements Runnable {
     private void work() throws InterruptedException {
         this.semaphore.acquire(1);
         long workTime = ThreadLocalRandom.current().nextLong(workerTime) + 1;
-        Thread.sleep(workTime);
+        this.waitForTime(workTime);
         this.currentBlockTime += workTime;
         this.minedResources++;
+        this.totalMinedResources++;
 
         String line = "resource mined in time [ms]: " + workTime;
         printer.printEvent(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
@@ -56,7 +58,7 @@ public class Worker implements Runnable {
             // load to lorry
             while (this.minedResources > 0) {
                 synchronized (this.lorryManager) {
-                    Thread.sleep(this.loadingTime);
+                    this.waitForTime(this.loadingTime);
                     boolean full = this.lorryManager.loadLorry();
                     this.minedResources--;
 
@@ -75,6 +77,18 @@ public class Worker implements Runnable {
         }
     }
 
+    private void waitForTime(long waitTime) {
+        long prevTime = System.currentTimeMillis();
+
+        while (true) {
+            long currentTime = System.currentTimeMillis();
+
+            if (currentTime - prevTime >= waitTime) {
+                break;
+            }
+        }
+    }
+
     public void addResources(int resources) {
         this.semaphore.release(resources);
     }
@@ -85,5 +99,9 @@ public class Worker implements Runnable {
 
     public void setBusy(boolean busy) {
         this.busy = busy;
+    }
+
+    public int getTotalMinedResources() {
+        return this.totalMinedResources;
     }
 }

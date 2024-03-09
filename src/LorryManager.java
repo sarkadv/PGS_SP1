@@ -1,29 +1,30 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CyclicBarrier;
 
 public class LorryManager {
 
     private int lorryCap;
+    private int lorryTime;
     private int lorriesCreated;
     private int lorriesCreatedMax;
     private Lorry lorryInMine;
-    private List<Thread> lorryThreads;
+    private Thread[] lorryThreads;
     private int resourcesDelivered;
-    private final int allResourcesCount;
+    private CyclicBarrier ferryBarrier;
     private Printer printer;
 
-    public LorryManager(int lorryCap, Printer printer, int allResourcesCount) {
+    public LorryManager(int lorryCap, int lorryTime, int ferryCap, Printer printer, int allResourcesCount) {
         this.lorryCap = lorryCap;
+        this.lorryTime = lorryTime;
         this.lorriesCreated = 0;
         this.lorriesCreatedMax = allResourcesCount / this.lorryCap;
-        this.lorryInMine = new Lorry(this.lorriesCreated + 1, lorryCap, printer);
-        this.lorriesCreated++;
-        this.lorryThreads = new ArrayList<Thread>();
         this.resourcesDelivered = 0;
-        this.allResourcesCount = allResourcesCount;
-        Thread lorryThread = new Thread(this.lorryInMine);
-        lorryThreads.add(lorryThread);
-        lorryThread.start();
+        this.lorryThreads = new Thread[this.lorriesCreatedMax];
+        this.ferryBarrier = new CyclicBarrier(ferryCap, new Ferry(System.currentTimeMillis(), printer));
+        this.printer = printer;
+
+        this.newLorryInMine();  // create a lorry waiting in mine
     }
 
     public synchronized boolean loadLorry() {
@@ -36,24 +37,26 @@ public class LorryManager {
 
     public synchronized void newLorryInMine() {
         if (this.lorriesCreated < this.lorriesCreatedMax) {
-            this.lorryInMine = new Lorry(this.lorriesCreated + 1, lorryCap, printer);
+            this.lorryInMine = new Lorry(this.lorriesCreated + 1, this.lorryCap, this.lorryTime, this.ferryBarrier, this.printer);
             Thread lorryThread = new Thread(this.lorryInMine);
-            lorryThreads.add(lorryThread);
+            lorryThreads[lorriesCreated] = lorryThread;
             this.lorriesCreated++;
             lorryThread.start();
         }
     }
 
-    public void waitForAllResourcesDelivered() {
+    public int waitForAllResourcesDelivered() {
         while (true) {
-            for (int i = 0; i < this.lorryThreads.size(); i++) {
+            for (int i = 0; i < this.lorryThreads.length; i++) {
                 try {
-                    this.lorryThreads.get(i).join();
+                    this.lorryThreads[i].join();
+                    this.resourcesDelivered += this.lorryCap;
                 } catch (InterruptedException e) {
-                    this.lorryThreads.remove(i);
+                    e.printStackTrace();
                 }
             }
             break;
         }
+        return this.resourcesDelivered;
     }
 }

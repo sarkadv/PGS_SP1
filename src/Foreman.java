@@ -11,25 +11,23 @@ public class Foreman {
     private File inputFile;
     private int workerCount;
     private int workerTime;
-    private int lorryCap;
     private List<Block> blocksToMine;
-    private List<Worker> workers;
+    private Worker[] workers;
     private ThreadGroup workerThreads;
     private LorryManager lorryManager;
     private Printer printer;
 
-    public Foreman(File inputFile, int workerCount, int workerTime, int lorryCap, Printer printer) {
+    public Foreman(File inputFile, int workerCount, int workerTime, int lorryCap, int lorryTime, int ferryCap, Printer printer) {
         this.ID = 1;
         this.inputFile = inputFile;
         this.workerCount = workerCount;
         this.workerTime = workerTime;
-        this.lorryCap = lorryCap;
-        this.workers = new ArrayList<Worker>();
+        this.workers = new Worker[workerCount];
         this.workerThreads = new ThreadGroup("workers");
         this.printer = printer;
 
         analyzeMap();
-        this.lorryManager = new LorryManager(this.lorryCap, this.printer, this.getResourceCount());
+        this.lorryManager = new LorryManager(lorryCap, lorryTime,  ferryCap, this.printer, this.getResourceCount());
         createWorkers();
     }
 
@@ -69,6 +67,11 @@ public class Foreman {
             }
         }
 
+        int resourcesDelivered = this.lorryManager.waitForAllResourcesDelivered();
+        this.waitForAllWorkersDone();
+    }
+
+    private void waitForAllWorkersDone() {
         while (true) {
             if (this.allWorkersDone()) {
                 this.workerThreads.interrupt();
@@ -78,16 +81,14 @@ public class Foreman {
                 Thread.yield();
             }
         }
-
-        this.lorryManager.waitForAllResourcesDelivered();
     }
 
     private Worker findFreeWorker() {
         Worker found = null;
 
-        for (int i = 0; i < this.workers.size(); i++) {
-            if (!this.workers.get(i).isBusy()) {
-                found = this.workers.get(i);
+        for (int i = 0; i < this.workers.length; i++) {
+            if (!this.workers[i].isBusy()) {
+                found = this.workers[i];
                 break;
             }
         }
@@ -96,8 +97,8 @@ public class Foreman {
     }
 
     private boolean allWorkersDone() {
-        for (int i = 0; i < this.workers.size(); i++) {
-            if (this.workers.get(i).isBusy()) {
+        for (int i = 0; i < this.workers.length; i++) {
+            if (this.workers[i].isBusy()) {
                 return false;
             }
         }
@@ -107,7 +108,7 @@ public class Foreman {
     private void createWorkers() {
         for (int i = 1; i <= workerCount; i++) {
             Worker newWorker = new Worker(i, this.workerTime, this.lorryManager, this.printer);
-            workers.add(newWorker);
+            this.workers[i - 1] = newWorker;
             Thread workerThread = new Thread(this.workerThreads, newWorker);
             workerThread.start();
         }

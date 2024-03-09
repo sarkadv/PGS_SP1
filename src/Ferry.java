@@ -1,0 +1,20 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Ferry implements Runnable {
+
+    private long barrierCreatedTime;
+    private Printer printer;
+
+    public Ferry(long barrierCreatedTime, Printer printer) {
+        this.barrierCreatedTime = barrierCreatedTime;
+        this.printer = printer;
+    }
+
+    @Override
+    public synchronized void run() {
+        long waitedUntilLoaded = System.currentTimeMillis() - this.barrierCreatedTime;
+        String line = "on its way, loaded after [ms]: " + waitedUntilLoaded;
+        printer.printEvent(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.FERRY.toString(), 1, line);
+    }
+}

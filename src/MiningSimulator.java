@@ -20,7 +20,7 @@ public class MiningSimulator {
         else {
             sim.printArguments();
             Printer printer = new Printer(sim.outputFile);
-            foreman = new Foreman(sim.inputFile, sim.workerCount, sim.workerTime, sim.lorryCap, printer);
+            foreman = new Foreman(sim.inputFile, sim.workerCount, sim.workerTime, sim.lorryCap, sim.lorryTime, sim.ferryCap, printer);
             foreman.organizeWork();
             printer.close();
         }
@@ -45,6 +45,7 @@ public class MiningSimulator {
 
         input = new File(args[1]);
         if (!input.exists() || input.isDirectory()) {
+            System.out.println("Invalid input file.");
             return false;
         }
         else {
