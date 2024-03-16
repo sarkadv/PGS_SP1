@@ -10,16 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d51e869-b04b-4522-98cc-eec11bdcedfe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ref_input_test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ref_input_test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ferry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ferry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Foreman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Foreman.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Lorry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lorry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LorryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LorryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MiningSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MiningSimulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Printer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Roles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Roles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Worker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +82,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="MiningSimulator" />
       <module name="PGS_SP1" />
-      <option name="PROGRAM_PARAMETERS" value="-i ref_input_test.txt -o out.txt -cWorker 4 -tWorker 50 -capLorry 2 -tLorry 1000 -capFerry 4" />
+      <option name="PROGRAM_PARAMETERS" value="-i ref_input.txt -o out.txt -cWorker 4 -tWorker 50 -capLorry 1000 -tLorry 1000 -capFerry 4" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -117,6 +117,7 @@
       <workItem from="1710064104608" duration="49000" />
       <workItem from="1710582466429" duration="2069000" />
       <workItem from="1710584713344" duration="662000" />
+      <workItem from="1710591882986" duration="13177000" />
     </task>
     <servers />
   </component>
