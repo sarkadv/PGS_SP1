@@ -5,7 +5,7 @@ public class Ferry implements Runnable {
 
     private final int ID;
     private long barrierCreatedTime;
-    private Printer printer;
+    private final Printer printer;
 
     public Ferry(long barrierCreatedTime, Printer printer) {
         this.ID = 1;

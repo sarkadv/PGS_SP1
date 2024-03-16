@@ -7,73 +7,72 @@ public class Worker implements Runnable {
 
     private final int ID;
     private boolean busy;
-    private int workerTime;
-    private int loadingTime;
-    private Semaphore semaphore;
+    private final int workerTime;
+    private final int loadingTime;
+    private final Semaphore resourceSemaphore;
     private int minedResources;
     private int totalMinedResources;
     private int currentBlockTime;
-    private LorryManager lorryManager;
-    private Printer printer;
+    private final LorryManager lorryManager;
+    private final Printer printer;
+    private boolean stopWorking;
 
     public Worker(int ID, int workerTime, LorryManager lorryManager, Printer printer) {
         this.ID = ID;
         this.busy = false;
         this.workerTime = workerTime;
-        this.loadingTime = 1000;    // loading to lorry in ms
-        this.semaphore = new Semaphore(0);
+        this.loadingTime = 10;    // loading to lorry in ms
+        this.resourceSemaphore = new Semaphore(0);
         this.minedResources = 0;
         this.totalMinedResources = 0;
         this.currentBlockTime = 0;
         this.lorryManager = lorryManager;
         this.printer = printer;
+        this.stopWorking = false;
     }
 
     @Override
     public void run() {
-        try {
-            while (true) {
-                work();
-            }
-        } catch (InterruptedException e) {
-            // run method ends
+        while (!stopWorking) {
+            work();
         }
     }
 
-    private void work() throws InterruptedException {
-        this.semaphore.acquire(1);
-        long workTime = ThreadLocalRandom.current().nextLong(workerTime) + 1;
-        this.waitForTime(workTime);
-        this.currentBlockTime += workTime;
-        this.minedResources++;
-        this.totalMinedResources++;
+    private void work() {
+        if (this.resourceSemaphore.tryAcquire(1)) {
+            long workTime = ThreadLocalRandom.current().nextLong(workerTime) + 1;
+            this.waitForTime(workTime);
+            this.currentBlockTime += workTime;
+            this.minedResources++;
+            this.totalMinedResources++;
 
-        String line = "resource mined in time [ms]: " + workTime;
-        printer.printEventToFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
-
-        if (this.semaphore.availablePermits() == 0) {   // the entire block has been mined
-            line = "block mined in time [ms]: " + this.currentBlockTime;
+            String line = "resource mined in time [ms]: " + workTime;
             printer.printEventToFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
 
-            // load to lorry
-            while (this.minedResources > 0) {
-                synchronized (this.lorryManager) {
-                    this.waitForTime(this.loadingTime);
-                    boolean full = this.lorryManager.loadLorry();
-                    this.minedResources--;
+            if (this.resourceSemaphore.availablePermits() == 0) {   // the entire block has been mined
+                line = "block mined in time [ms]: " + this.currentBlockTime;
+                printer.printEventToFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
 
-                    line = "loaded resource onto lorry";
-                    printer.printEventToFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
+                // load to lorry
+                while (this.minedResources > 0) {
+                    synchronized (this.lorryManager) {
+                        this.waitForTime(this.loadingTime);
+                        boolean full = this.lorryManager.loadLorry();
+                        this.minedResources--;
 
-                    if (full) {
-                        this.lorryManager.sendOffLorry();
-                        this.lorryManager.newLorryInMine();
+                        line = "loaded resource onto lorry";
+                        printer.printEventToFile(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.ID, line);
+
+                        if (full) {
+                            this.lorryManager.sendOffLorry();
+                            this.lorryManager.newLorryInMine();
+                        }
                     }
                 }
-            }
 
-            this.currentBlockTime = 0;
-            this.busy = false;
+                this.currentBlockTime = 0;
+                this.busy = false;
+            }
         }
     }
 
@@ -90,7 +89,7 @@ public class Worker implements Runnable {
     }
 
     public void addResources(int resources) {
-        this.semaphore.release(resources);
+        this.resourceSemaphore.release(resources);
     }
 
     public int getID() {
@@ -106,5 +105,9 @@ public class Worker implements Runnable {
 
     public int getTotalMinedResources() {
         return this.totalMinedResources;
+    }
+
+    public void setStopWorking(boolean stopWorking) {
+        this.stopWorking = stopWorking;
     }
 }

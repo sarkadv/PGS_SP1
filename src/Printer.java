@@ -3,16 +3,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Printer {
-    private File outputFile;
     private FileWriter fileWriter;
     Printer(File outputFile) {
-        this.outputFile = outputFile;
-
         try {
             this.fileWriter = new FileWriter(outputFile);
         }
         catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("There was an error writing to the output file.");
         }
     }
 
@@ -22,7 +19,7 @@ public class Printer {
         try {
             this.fileWriter.write(line);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("There was an error writing to the output file.");
         }
     }
 
@@ -42,7 +39,7 @@ public class Printer {
             this.fileWriter.flush();
             this.fileWriter.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("There was an error closing the output file.");
         }
     }
 }

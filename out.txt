@@ -1,133 +1,127 @@
-2024-03-09 17:43:12.033 | FOREMAN | 1 | blocks found: 12 | total resources found: 32
-2024-03-09 17:43:12.126 | WORKER | 1 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.127 | WORKER | 9 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.129 | WORKER | 1 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.130 | WORKER | 9 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.130 | WORKER | 5 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.131 | WORKER | 9 | block mined in time [ms]: 3
-2024-03-09 17:43:12.137 | WORKER | 4 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.137 | WORKER | 2 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.136 | WORKER | 1 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.138 | WORKER | 5 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.139 | WORKER | 4 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.139 | WORKER | 2 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.140 | WORKER | 2 | block mined in time [ms]: 4
-2024-03-09 17:43:12.140 | WORKER | 4 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.140 | WORKER | 5 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.142 | WORKER | 10 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.149 | WORKER | 10 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.150 | WORKER | 10 | block mined in time [ms]: 3
-2024-03-09 17:43:12.140 | WORKER | 1 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.148 | WORKER | 4 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.151 | WORKER | 4 | block mined in time [ms]: 6
-2024-03-09 17:43:12.151 | WORKER | 1 | block mined in time [ms]: 6
-2024-03-09 17:43:12.146 | WORKER | 5 | block mined in time [ms]: 3
-2024-03-09 17:43:12.147 | WORKER | 7 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.154 | WORKER | 7 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.155 | WORKER | 7 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.155 | WORKER | 7 | block mined in time [ms]: 4
-2024-03-09 17:43:12.156 | WORKER | 3 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.158 | WORKER | 8 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.158 | WORKER | 3 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.157 | WORKER | 6 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.158 | WORKER | 3 | block mined in time [ms]: 3
-2024-03-09 17:43:12.160 | WORKER | 8 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.161 | WORKER | 6 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.161 | WORKER | 8 | resource mined in time [ms]: 1
-2024-03-09 17:43:12.161 | WORKER | 8 | block mined in time [ms]: 5
-2024-03-09 17:43:12.163 | WORKER | 6 | resource mined in time [ms]: 2
-2024-03-09 17:43:12.163 | WORKER | 6 | block mined in time [ms]: 6
-2024-03-09 17:43:13.135 | WORKER | 9 | loaded resource onto lorry
-2024-03-09 17:43:14.137 | WORKER | 9 | loaded resource onto lorry
-2024-03-09 17:43:14.137 | LORRY | 1 | loaded after [ms]: 2060
-2024-03-09 17:43:14.139 | LORRY | 1 | drove to ferry in time [ms]: 1
-2024-03-09 17:43:14.141 | WORKER | 9 | resource mined in time [ms]: 2
-2024-03-09 17:43:14.143 | WORKER | 9 | resource mined in time [ms]: 2
-2024-03-09 17:43:14.143 | WORKER | 9 | block mined in time [ms]: 4
-2024-03-09 17:43:15.138 | WORKER | 6 | loaded resource onto lorry
-2024-03-09 17:43:16.138 | WORKER | 6 | loaded resource onto lorry
-2024-03-09 17:43:16.138 | LORRY | 2 | loaded after [ms]: 2000
-2024-03-09 17:43:16.142 | LORRY | 2 | drove to ferry in time [ms]: 4
-2024-03-09 17:43:16.142 | FERRY | 1 | on its way, loaded after [ms]: 4066
-2024-03-09 17:43:16.143 | LORRY | 2 | drove to target location in time [ms]: 1
-2024-03-09 17:43:16.145 | LORRY | 1 | drove to target location in time [ms]: 3
-2024-03-09 17:43:17.138 | WORKER | 6 | loaded resource onto lorry
-2024-03-09 17:43:17.140 | WORKER | 6 | resource mined in time [ms]: 2
-2024-03-09 17:43:17.142 | WORKER | 6 | resource mined in time [ms]: 2
-2024-03-09 17:43:17.142 | WORKER | 6 | block mined in time [ms]: 4
-2024-03-09 17:43:18.138 | LORRY | 3 | loaded after [ms]: 2000
-2024-03-09 17:43:18.138 | WORKER | 8 | loaded resource onto lorry
-2024-03-09 17:43:18.140 | LORRY | 3 | drove to ferry in time [ms]: 2
-2024-03-09 17:43:19.138 | WORKER | 8 | loaded resource onto lorry
-2024-03-09 17:43:20.138 | WORKER | 8 | loaded resource onto lorry
-2024-03-09 17:43:20.138 | LORRY | 4 | loaded after [ms]: 2000
-2024-03-09 17:43:20.142 | LORRY | 4 | drove to ferry in time [ms]: 4
-2024-03-09 17:43:20.143 | FERRY | 1 | on its way, loaded after [ms]: 4001
-2024-03-09 17:43:20.146 | LORRY | 4 | drove to target location in time [ms]: 3
-2024-03-09 17:43:20.146 | LORRY | 3 | drove to target location in time [ms]: 3
-2024-03-09 17:43:21.138 | WORKER | 3 | loaded resource onto lorry
-2024-03-09 17:43:22.138 | WORKER | 3 | loaded resource onto lorry
-2024-03-09 17:43:22.138 | LORRY | 5 | loaded after [ms]: 2000
-2024-03-09 17:43:22.140 | LORRY | 5 | drove to ferry in time [ms]: 2
-2024-03-09 17:43:23.138 | WORKER | 7 | loaded resource onto lorry
-2024-03-09 17:43:24.138 | WORKER | 7 | loaded resource onto lorry
-2024-03-09 17:43:24.138 | LORRY | 6 | loaded after [ms]: 2000
-2024-03-09 17:43:24.139 | LORRY | 6 | drove to ferry in time [ms]: 1
-2024-03-09 17:43:24.139 | FERRY | 1 | on its way, loaded after [ms]: 3996
-2024-03-09 17:43:24.140 | LORRY | 5 | drove to target location in time [ms]: 1
-2024-03-09 17:43:24.142 | LORRY | 6 | drove to target location in time [ms]: 3
-2024-03-09 17:43:25.138 | WORKER | 7 | loaded resource onto lorry
-2024-03-09 17:43:26.138 | WORKER | 5 | loaded resource onto lorry
-2024-03-09 17:43:26.138 | LORRY | 7 | loaded after [ms]: 2000
-2024-03-09 17:43:26.141 | LORRY | 7 | drove to ferry in time [ms]: 3
-2024-03-09 17:43:27.138 | WORKER | 5 | loaded resource onto lorry
-2024-03-09 17:43:28.138 | WORKER | 5 | loaded resource onto lorry
-2024-03-09 17:43:28.138 | LORRY | 8 | loaded after [ms]: 2000
-2024-03-09 17:43:28.141 | LORRY | 8 | drove to ferry in time [ms]: 3
-2024-03-09 17:43:28.141 | FERRY | 1 | on its way, loaded after [ms]: 4002
-2024-03-09 17:43:28.145 | LORRY | 8 | drove to target location in time [ms]: 4
-2024-03-09 17:43:28.146 | LORRY | 7 | drove to target location in time [ms]: 5
-2024-03-09 17:43:29.138 | WORKER | 1 | loaded resource onto lorry
-2024-03-09 17:43:30.138 | WORKER | 1 | loaded resource onto lorry
-2024-03-09 17:43:30.138 | LORRY | 9 | loaded after [ms]: 2000
-2024-03-09 17:43:30.140 | LORRY | 9 | drove to ferry in time [ms]: 2
-2024-03-09 17:43:31.138 | WORKER | 1 | loaded resource onto lorry
-2024-03-09 17:43:32.138 | LORRY | 10 | loaded after [ms]: 2000
-2024-03-09 17:43:32.138 | WORKER | 1 | loaded resource onto lorry
-2024-03-09 17:43:32.143 | LORRY | 10 | drove to ferry in time [ms]: 5
-2024-03-09 17:43:32.143 | FERRY | 1 | on its way, loaded after [ms]: 4002
-2024-03-09 17:43:32.147 | LORRY | 10 | drove to target location in time [ms]: 4
-2024-03-09 17:43:32.148 | LORRY | 9 | drove to target location in time [ms]: 5
-2024-03-09 17:43:33.138 | WORKER | 4 | loaded resource onto lorry
-2024-03-09 17:43:34.138 | WORKER | 4 | loaded resource onto lorry
-2024-03-09 17:43:34.138 | LORRY | 11 | loaded after [ms]: 2000
-2024-03-09 17:43:34.143 | LORRY | 11 | drove to ferry in time [ms]: 5
-2024-03-09 17:43:35.138 | WORKER | 4 | loaded resource onto lorry
-2024-03-09 17:43:36.138 | WORKER | 4 | loaded resource onto lorry
-2024-03-09 17:43:36.138 | LORRY | 12 | loaded after [ms]: 2000
-2024-03-09 17:43:36.139 | LORRY | 12 | drove to ferry in time [ms]: 1
-2024-03-09 17:43:36.139 | FERRY | 1 | on its way, loaded after [ms]: 3996
-2024-03-09 17:43:36.141 | LORRY | 11 | drove to target location in time [ms]: 2
-2024-03-09 17:43:36.142 | LORRY | 12 | drove to target location in time [ms]: 3
-2024-03-09 17:43:37.138 | WORKER | 10 | loaded resource onto lorry
-2024-03-09 17:43:38.138 | WORKER | 10 | loaded resource onto lorry
-2024-03-09 17:43:38.138 | LORRY | 13 | loaded after [ms]: 2000
-2024-03-09 17:43:38.140 | LORRY | 13 | drove to ferry in time [ms]: 2
-2024-03-09 17:43:39.138 | WORKER | 2 | loaded resource onto lorry
-2024-03-09 17:43:40.138 | WORKER | 2 | loaded resource onto lorry
-2024-03-09 17:43:40.138 | LORRY | 14 | loaded after [ms]: 2000
-2024-03-09 17:43:40.140 | LORRY | 14 | drove to ferry in time [ms]: 2
-2024-03-09 17:43:40.140 | FERRY | 1 | on its way, loaded after [ms]: 4001
-2024-03-09 17:43:40.141 | LORRY | 14 | drove to target location in time [ms]: 1
-2024-03-09 17:43:40.144 | LORRY | 13 | drove to target location in time [ms]: 4
-2024-03-09 17:43:41.138 | WORKER | 6 | loaded resource onto lorry
-2024-03-09 17:43:42.138 | WORKER | 6 | loaded resource onto lorry
-2024-03-09 17:43:42.138 | LORRY | 15 | loaded after [ms]: 2000
-2024-03-09 17:43:42.142 | LORRY | 15 | drove to ferry in time [ms]: 4
-2024-03-09 17:43:43.138 | WORKER | 9 | loaded resource onto lorry
-2024-03-09 17:43:44.138 | WORKER | 9 | loaded resource onto lorry
-2024-03-09 17:43:44.138 | LORRY | 16 | loaded after [ms]: 2000
-2024-03-09 17:43:44.141 | LORRY | 16 | drove to ferry in time [ms]: 3
-2024-03-09 17:43:44.141 | FERRY | 1 | on its way, loaded after [ms]: 4001
-2024-03-09 17:43:44.144 | LORRY | 15 | drove to target location in time [ms]: 3
-2024-03-09 17:43:44.145 | LORRY | 16 | drove to target location in time [ms]: 4
+2024-03-16 11:20:00.987 | FOREMAN | 1 | blocks found: 12 | total resources found: 31
+2024-03-16 11:20:01.065 | WORKER | 4 | resource mined in time [ms]: 25
+2024-03-16 11:20:01.065 | WORKER | 3 | resource mined in time [ms]: 22
+2024-03-16 11:20:01.066 | WORKER | 1 | resource mined in time [ms]: 10
+2024-03-16 11:20:01.079 | WORKER | 2 | resource mined in time [ms]: 48
+2024-03-16 11:20:01.079 | WORKER | 4 | resource mined in time [ms]: 11
+2024-03-16 11:20:01.085 | WORKER | 4 | resource mined in time [ms]: 3
+2024-03-16 11:20:01.086 | WORKER | 3 | resource mined in time [ms]: 19
+2024-03-16 11:20:01.089 | WORKER | 3 | block mined in time [ms]: 41
+2024-03-16 11:20:01.095 | WORKER | 1 | resource mined in time [ms]: 28
+2024-03-16 11:20:01.100 | WORKER | 4 | resource mined in time [ms]: 15
+2024-03-16 11:20:01.100 | WORKER | 4 | block mined in time [ms]: 54
+2024-03-16 11:20:01.104 | WORKER | 1 | resource mined in time [ms]: 8
+2024-03-16 11:20:01.103 | WORKER | 3 | loaded resource onto lorry
+2024-03-16 11:20:01.106 | WORKER | 2 | resource mined in time [ms]: 26
+2024-03-16 11:20:01.106 | WORKER | 2 | block mined in time [ms]: 74
+2024-03-16 11:20:01.115 | WORKER | 3 | loaded resource onto lorry
+2024-03-16 11:20:01.116 | LORRY | 1 | loaded after [ms]: 86
+2024-03-16 11:20:01.127 | WORKER | 1 | resource mined in time [ms]: 22
+2024-03-16 11:20:01.127 | WORKER | 4 | loaded resource onto lorry
+2024-03-16 11:20:01.128 | WORKER | 1 | block mined in time [ms]: 68
+2024-03-16 11:20:01.138 | WORKER | 4 | loaded resource onto lorry
+2024-03-16 11:20:01.138 | LORRY | 2 | loaded after [ms]: 22
+2024-03-16 11:20:01.149 | WORKER | 4 | loaded resource onto lorry
+2024-03-16 11:20:01.156 | WORKER | 3 | resource mined in time [ms]: 34
+2024-03-16 11:20:01.159 | WORKER | 4 | loaded resource onto lorry
+2024-03-16 11:20:01.159 | LORRY | 3 | loaded after [ms]: 20
+2024-03-16 11:20:01.170 | WORKER | 2 | loaded resource onto lorry
+2024-03-16 11:20:01.172 | WORKER | 4 | resource mined in time [ms]: 4
+2024-03-16 11:20:01.172 | WORKER | 3 | resource mined in time [ms]: 6
+2024-03-16 11:20:01.181 | WORKER | 1 | loaded resource onto lorry
+2024-03-16 11:20:01.183 | LORRY | 4 | loaded after [ms]: 23
+2024-03-16 11:20:01.190 | WORKER | 3 | resource mined in time [ms]: 14
+2024-03-16 11:20:01.195 | WORKER | 1 | loaded resource onto lorry
+2024-03-16 11:20:01.196 | WORKER | 4 | resource mined in time [ms]: 19
+2024-03-16 11:20:01.209 | LORRY | 5 | loaded after [ms]: 28
+2024-03-16 11:20:01.209 | WORKER | 2 | loaded resource onto lorry
+2024-03-16 11:20:01.199 | WORKER | 3 | block mined in time [ms]: 54
+2024-03-16 11:20:01.216 | WORKER | 4 | resource mined in time [ms]: 15
+2024-03-16 11:20:01.221 | WORKER | 1 | loaded resource onto lorry
+2024-03-16 11:20:01.225 | WORKER | 4 | block mined in time [ms]: 38
+2024-03-16 11:20:01.227 | WORKER | 2 | resource mined in time [ms]: 8
+2024-03-16 11:20:01.232 | WORKER | 2 | resource mined in time [ms]: 3
+2024-03-16 11:20:01.236 | LORRY | 6 | loaded after [ms]: 26
+2024-03-16 11:20:01.236 | WORKER | 3 | loaded resource onto lorry
+2024-03-16 11:20:01.242 | WORKER | 2 | resource mined in time [ms]: 10
+2024-03-16 11:20:01.242 | LORRY | 2 | drove to ferry in time [ms]: 103
+2024-03-16 11:20:01.247 | WORKER | 2 | block mined in time [ms]: 21
+2024-03-16 11:20:01.251 | WORKER | 3 | loaded resource onto lorry
+2024-03-16 11:20:01.261 | WORKER | 3 | loaded resource onto lorry
+2024-03-16 11:20:01.261 | LORRY | 7 | loaded after [ms]: 20
+2024-03-16 11:20:01.272 | WORKER | 4 | loaded resource onto lorry
+2024-03-16 11:20:01.282 | WORKER | 4 | loaded resource onto lorry
+2024-03-16 11:20:01.282 | LORRY | 8 | loaded after [ms]: 21
+2024-03-16 11:20:01.292 | WORKER | 4 | loaded resource onto lorry
+2024-03-16 11:20:01.297 | WORKER | 4 | resource mined in time [ms]: 5
+2024-03-16 11:20:01.299 | WORKER | 3 | resource mined in time [ms]: 33
+2024-03-16 11:20:01.302 | WORKER | 1 | loaded resource onto lorry
+2024-03-16 11:20:01.302 | LORRY | 9 | loaded after [ms]: 20
+2024-03-16 11:20:01.313 | WORKER | 2 | loaded resource onto lorry
+2024-03-16 11:20:01.322 | WORKER | 3 | resource mined in time [ms]: 23
+2024-03-16 11:20:01.325 | WORKER | 3 | resource mined in time [ms]: 3
+2024-03-16 11:20:01.329 | LORRY | 10 | loaded after [ms]: 27
+2024-03-16 11:20:01.329 | WORKER | 2 | loaded resource onto lorry
+2024-03-16 11:20:01.356 | WORKER | 1 | resource mined in time [ms]: 42
+2024-03-16 11:20:01.358 | WORKER | 3 | block mined in time [ms]: 59
+2024-03-16 11:20:01.330 | WORKER | 4 | resource mined in time [ms]: 33
+2024-03-16 11:20:01.374 | WORKER | 4 | block mined in time [ms]: 38
+2024-03-16 11:20:01.377 | WORKER | 2 | loaded resource onto lorry
+2024-03-16 11:20:01.387 | WORKER | 4 | loaded resource onto lorry
+2024-03-16 11:20:01.387 | LORRY | 11 | loaded after [ms]: 20
+2024-03-16 11:20:01.394 | WORKER | 2 | resource mined in time [ms]: 11
+2024-03-16 11:20:01.397 | WORKER | 4 | loaded resource onto lorry
+2024-03-16 11:20:01.407 | WORKER | 3 | loaded resource onto lorry
+2024-03-16 11:20:01.407 | LORRY | 12 | loaded after [ms]: 20
+2024-03-16 11:20:01.417 | WORKER | 3 | loaded resource onto lorry
+2024-03-16 11:20:01.417 | WORKER | 4 | resource mined in time [ms]: 19
+2024-03-16 11:20:01.417 | WORKER | 4 | block mined in time [ms]: 19
+2024-03-16 11:20:01.422 | WORKER | 1 | resource mined in time [ms]: 50
+2024-03-16 11:20:01.422 | WORKER | 1 | block mined in time [ms]: 92
+2024-03-16 11:20:01.427 | WORKER | 3 | loaded resource onto lorry
+2024-03-16 11:20:01.427 | LORRY | 13 | loaded after [ms]: 20
+2024-03-16 11:20:01.428 | WORKER | 2 | resource mined in time [ms]: 33
+2024-03-16 11:20:01.428 | WORKER | 2 | block mined in time [ms]: 44
+2024-03-16 11:20:01.435 | LORRY | 12 | drove to ferry in time [ms]: 27
+2024-03-16 11:20:01.429 | LORRY | 5 | drove to ferry in time [ms]: 189
+2024-03-16 11:20:01.429 | LORRY | 7 | drove to ferry in time [ms]: 161
+2024-03-16 11:20:01.449 | FERRY | 1 | on its way, loaded after [ms]: 420
+2024-03-16 11:20:01.438 | WORKER | 1 | loaded resource onto lorry
+2024-03-16 11:20:01.502 | LORRY | 4 | drove to ferry in time [ms]: 315
+2024-03-16 11:20:01.509 | WORKER | 1 | loaded resource onto lorry
+2024-03-16 11:20:01.509 | LORRY | 14 | loaded after [ms]: 82
+2024-03-16 11:20:01.519 | WORKER | 4 | loaded resource onto lorry
+2024-03-16 11:20:01.529 | WORKER | 2 | loaded resource onto lorry
+2024-03-16 11:20:01.529 | LORRY | 15 | loaded after [ms]: 20
+2024-03-16 11:20:01.539 | WORKER | 2 | loaded resource onto lorry
+2024-03-16 11:20:01.539 | LORRY | 16 | loaded after [ms]: 10
+2024-03-16 11:20:01.551 | LORRY | 1 | drove to ferry in time [ms]: 408
+2024-03-16 11:20:01.714 | LORRY | 7 | drove to target location in time [ms]: 264
+2024-03-16 11:20:01.825 | LORRY | 10 | drove to ferry in time [ms]: 435
+2024-03-16 11:20:01.826 | LORRY | 11 | drove to ferry in time [ms]: 433
+2024-03-16 11:20:01.841 | FERRY | 1 | on its way, loaded after [ms]: 391
+2024-03-16 11:20:01.852 | LORRY | 13 | drove to ferry in time [ms]: 415
+2024-03-16 11:20:01.862 | LORRY | 16 | drove to ferry in time [ms]: 320
+2024-03-16 11:20:01.863 | LORRY | 14 | drove to ferry in time [ms]: 334
+2024-03-16 11:20:01.908 | LORRY | 15 | drove to ferry in time [ms]: 368
+2024-03-16 11:20:01.909 | FERRY | 1 | on its way, loaded after [ms]: 68
+2024-03-16 11:20:01.953 | LORRY | 12 | drove to target location in time [ms]: 503
+2024-03-16 11:20:01.967 | LORRY | 2 | drove to target location in time [ms]: 514
+2024-03-16 11:20:01.970 | LORRY | 3 | drove to ferry in time [ms]: 809
+2024-03-16 11:20:02.035 | LORRY | 6 | drove to ferry in time [ms]: 757
+2024-03-16 11:20:02.056 | LORRY | 10 | drove to target location in time [ms]: 215
+2024-03-16 11:20:02.065 | LORRY | 5 | drove to target location in time [ms]: 613
+2024-03-16 11:20:02.287 | LORRY | 14 | drove to target location in time [ms]: 378
+2024-03-16 11:20:02.287 | LORRY | 8 | drove to ferry in time [ms]: 992
+2024-03-16 11:20:02.290 | LORRY | 9 | drove to ferry in time [ms]: 988
+2024-03-16 11:20:02.290 | FERRY | 1 | on its way, loaded after [ms]: 381
+2024-03-16 11:20:02.392 | LORRY | 1 | drove to target location in time [ms]: 543
+2024-03-16 11:20:02.425 | LORRY | 15 | drove to target location in time [ms]: 502
+2024-03-16 11:20:02.708 | LORRY | 13 | drove to target location in time [ms]: 793
+2024-03-16 11:20:02.722 | LORRY | 16 | drove to target location in time [ms]: 803
+2024-03-16 11:20:02.725 | LORRY | 6 | drove to target location in time [ms]: 435
+2024-03-16 11:20:02.774 | LORRY | 11 | drove to target location in time [ms]: 933
+2024-03-16 11:20:02.799 | LORRY | 4 | drove to target location in time [ms]: 958
+2024-03-16 11:20:02.820 | LORRY | 3 | drove to target location in time [ms]: 530
+2024-03-16 11:20:02.990 | LORRY | 9 | drove to target location in time [ms]: 700
+2024-03-16 11:20:03.282 | LORRY | 8 | drove to target location in time [ms]: 990

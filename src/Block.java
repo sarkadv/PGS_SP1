@@ -1,6 +1,6 @@
 public class Block {
 
-    private int resources;
+    private final int resources;
 
     public Block(int resources) {
         this.resources = Math.max(resources, 0);
@@ -8,11 +8,5 @@ public class Block {
 
     public int getResources() {
         return this.resources;
-    }
-
-    public void mineResource() {
-        if (this.resources > 0) {
-            this.resources--;
-        }
     }
 }

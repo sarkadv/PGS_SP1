@@ -7,35 +7,26 @@ import java.util.*;
 public class Foreman {
 
     private final int ID;
-    private Scanner scanner;
-    private File inputFile;
-    private int workerCount;
-    private int workerTime;
     private List<Block> blocksToMine;
-    private Worker[] workers;
-    private Thread[] workerThreads;
-    private LorryManager lorryManager;
-    private Printer printer;
+    private final Worker[] workers;
+    private final LorryManager lorryManager;
+    private final Printer printer;
 
     public Foreman(File inputFile, int workerCount, int workerTime, int lorryCap, int lorryTime, int ferryCap, Printer printer) {
         this.ID = 1;
-        this.inputFile = inputFile;
-        this.workerCount = workerCount;
-        this.workerTime = workerTime;
         this.workers = new Worker[workerCount];
-        this.workerThreads = new Thread[workerCount];
         this.printer = printer;
 
-        analyzeMap();
+        analyzeMap(inputFile);
         this.lorryManager = new LorryManager(lorryCap, lorryTime,  ferryCap, this.printer, this.getResourceCount());
-        createWorkers();
+        createWorkers(workerTime);
     }
 
-    private void analyzeMap() {
+    private void analyzeMap(File inputFile) {
         blocksToMine = new LinkedList<Block>();
 
         try {
-            scanner = new Scanner(this.inputFile);
+            Scanner scanner = new Scanner(inputFile);
 
             while (scanner.hasNext()) {
                 String token = scanner.next();
@@ -45,7 +36,7 @@ public class Foreman {
             scanner.close();
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.err.println("The input file was not found.");
         }
 
         String line = "blocks found: " + this.getBlocksCount() + " | total resources found: " + this.getResourceCount();
@@ -56,10 +47,7 @@ public class Foreman {
         while (this.blocksToMine.size() > 0) {
             Worker worker = findFreeWorker();
 
-            if (worker == null) {   // no free workers
-                continue;
-            }
-            else {
+            if (worker != null) {   // there is a free worker
                 Block block = this.blocksToMine.get(0);
                 this.blocksToMine.remove(0);
                 worker.setBusy(true);
@@ -79,11 +67,11 @@ public class Foreman {
         // wait for all workers to end their job
         while (true) {
             if (this.allWorkersDone()) {
-                for (int i = 0; i < this.workerThreads.length; i++) {
+                for (int i = 0; i < this.workers.length; i++) {
                     int resourcesMined = this.workers[i].getTotalMinedResources();
                     line = "total resources mined: " + resourcesMined;
                     printer.printEventToConsole(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")), Roles.WORKER.toString(), this.workers[i].getID(), line);
-                    this.workerThreads[i].interrupt();
+                    this.workers[i].setStopWorking(true);
                 }
                 break;
             }
@@ -115,12 +103,11 @@ public class Foreman {
         return true;
     }
 
-    private void createWorkers() {
-        for (int i = 1; i <= workerCount; i++) {
-            Worker newWorker = new Worker(i, this.workerTime, this.lorryManager, this.printer);
+    private void createWorkers(int workerTime) {
+        for (int i = 1; i <= this.workers.length; i++) {
+            Worker newWorker = new Worker(i, workerTime, this.lorryManager, this.printer);
             this.workers[i - 1] = newWorker;
             Thread workerThread = new Thread(newWorker);
-            this.workerThreads[i - 1] = workerThread;
             workerThread.start();
         }
     }

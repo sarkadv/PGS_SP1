@@ -8,26 +8,27 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Lorry implements Runnable {
 
     private final int ID;
-    private int lorryCap;
-    private int lorryTime;
-    private CountDownLatch loadedLatch;
-    private CountDownLatch fullSignal;
-    private CyclicBarrier ferryBarrier;
-    private Printer printer;
-    private long instanceCreatedTime;
+    private final int lorryTime;
+    private final CountDownLatch loadedLatch;
+    private int loadedResources;
+    private final CountDownLatch fullSignal;
+    private final CyclicBarrier ferryBarrier;
+    private final Printer printer;
+    private final long instanceCreatedTime;
 
     public Lorry(int ID, int lorryCap, int lorryTime, CyclicBarrier ferryBarrier, Printer printer) {
         this.ID = ID;
-        this.lorryCap = lorryCap;
         this.lorryTime = lorryTime;
         this.ferryBarrier = ferryBarrier;
-        this.loadedLatch = new CountDownLatch(this.lorryCap);
+        this.loadedLatch = new CountDownLatch(lorryCap);
+        this.loadedResources = 0;
         this.fullSignal = new CountDownLatch(1);
         this.printer = printer;
         this.instanceCreatedTime = System.currentTimeMillis();
     }
 
     public synchronized boolean loadLorry() {
+        this.loadedResources++;
         this.loadedLatch.countDown();
         return this.loadedLatch.getCount() == 0;    // returns true if lorry is full
     }
@@ -45,8 +46,11 @@ public class Lorry implements Runnable {
             this.ferryBarrier.await();  // wait for ferry cap
             this.driveToTarget();
 
-        } catch (InterruptedException | BrokenBarrierException e) {
-            e.printStackTrace();
+        } catch (InterruptedException e) {
+            System.err.println("Lorry thread " + this.ID + " was interrupted.");
+        }
+        catch (BrokenBarrierException e) {
+            System.err.println("The barrier of lorry thread " + this.ID + " was broken.");
         }
     }
 
@@ -81,5 +85,9 @@ public class Lorry implements Runnable {
                 break;
             }
         }
+    }
+
+    public int getLoadedResources() {
+        return this.loadedResources;
     }
 }

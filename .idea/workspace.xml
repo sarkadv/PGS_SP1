@@ -10,11 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d51e869-b04b-4522-98cc-eec11bdcedfe" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ref_input_test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ref_input_test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ferry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ferry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Foreman.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Foreman.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Lorry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lorry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LorryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LorryManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Printer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Worker.java" afterDir="false" />
     </list>
@@ -33,6 +37,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/LorryManager.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -60,7 +67,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -75,7 +82,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="MiningSimulator" />
       <module name="PGS_SP1" />
-      <option name="PROGRAM_PARAMETERS" value="-i ref_input_test.txt -o out.txt -cWorker 10 -tWorker 2 -capLorry 2 -tLorry 5 -capFerry 2" />
+      <option name="PROGRAM_PARAMETERS" value="-i ref_input_test.txt -o out.txt -cWorker 4 -tWorker 50 -capLorry 2 -tLorry 1000 -capFerry 4" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -105,6 +112,11 @@
       <workItem from="1709922109034" duration="28000" />
       <workItem from="1709982089534" duration="66000" />
       <workItem from="1709996875643" duration="5790000" />
+      <workItem from="1710009331465" duration="4761000" />
+      <workItem from="1710055053635" duration="851000" />
+      <workItem from="1710064104608" duration="49000" />
+      <workItem from="1710582466429" duration="2069000" />
+      <workItem from="1710584713344" duration="662000" />
     </task>
     <servers />
   </component>
